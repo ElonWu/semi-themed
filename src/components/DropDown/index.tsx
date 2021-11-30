@@ -128,7 +128,5 @@ export const ElonDropdown: FC<ElonDropDownProps> = ({
     onLeaveItem,
   ]);
 
-  console.log({ menu, active });
-
   return <Dropdown showTick menu={menu} {...rest} />;
 };
