@@ -5,7 +5,7 @@ name: 自动发布
 on:
   push:
     branches:
-      - master
+      - no-one
 jobs:
   build_and_preview:
     runs-on: ubuntu-latest
