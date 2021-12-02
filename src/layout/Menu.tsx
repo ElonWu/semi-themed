@@ -85,7 +85,7 @@ const Menu = () => {
 
     // 设置默认选中的
     if (matchedKey) setSelected([matchedKey]);
-  }, [locaiton.pathname, items]);
+  }, []);
 
   // 根据点击匹配
   const onSelect = useCallback(
