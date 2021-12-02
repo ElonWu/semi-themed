@@ -27,7 +27,7 @@ jobs:
           restore-keys: npm-
 
       - name: Install dependencies
-        run: npm i
+        run: npm install
 
       - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
@@ -35,4 +35,4 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SEMI_THEME }}'
           projectId: semi-theme
-          channelId: ''
+          channelId: 'live'
