@@ -17,7 +17,7 @@ export const useDarkMode = () => {
   const toggleDarkMode = useCallback(() => {
     document.documentElement.classList.toggle('dark'); // 手动切换
     resetTheme(); // 重置本地存储
-  }, []);
+  }, [resetTheme]);
 
   // 首次自动切换
   useEffect(() => {
@@ -31,7 +31,7 @@ export const useDarkMode = () => {
     } else {
       resetTheme(); // 不切换，仅重置本地存储
     }
-  }, []);
+  }, [resetTheme, toggleDarkMode]);
 
   return { theme, toggleDarkMode };
 };

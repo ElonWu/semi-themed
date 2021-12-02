@@ -1,4 +1,4 @@
-import React, { FC, MouseEvent, useCallback, useMemo, useState } from 'react';
+import React, { FC, MouseEvent, useCallback, useMemo } from 'react';
 import { Dropdown } from '@douyinfe/semi-ui';
 import { isValidArray } from '@elonwu/utils';
 import {

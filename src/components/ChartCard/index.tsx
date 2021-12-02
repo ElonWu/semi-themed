@@ -17,7 +17,6 @@ import { OptionProps } from '@douyinfe/semi-ui/lib/es/select';
 import { useGlobal } from '@/layout/Global';
 import { Divider } from '../Divider/index';
 import { ElonDropdown, ElonDropdownOption } from '../DropDown/index';
-import moment from 'moment';
 
 const ChartCard = ({ cardKey }: { cardKey: string }) => {
   const [chartType, setChartType] = useState<string>();
