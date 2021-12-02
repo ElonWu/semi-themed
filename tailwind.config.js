@@ -8,8 +8,10 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     screens: {
-      tablet: '960px',
-      pc: '1200px',
+      sm: '768px',
+      md: '1024px',
+      lg: '1440px',
+      wide: '1920px',
     },
 
     boxShadow: {
@@ -74,17 +76,19 @@ module.exports = {
     },
 
     colors: {
+      white: 'rgba(var(--semi-white), 1)',
+      black: 'rgba(var(--semi-black), 1)',
       primary: {
-        50: 'rgba(var(--semi-primary-0), 1)',
-        100: 'rgba(var(--semi-primary-1), 1)',
-        200: 'rgba(var(--semi-primary-2), 1)',
-        300: 'rgba(var(--semi-primary-3), 1)',
-        400: 'rgba(var(--semi-primary-4), 1)',
-        500: 'rgba(var(--semi-primary-5), 1)', // default
-        600: 'rgba(var(--semi-primary-6), 1)',
-        700: 'rgba(var(--semi-primary-7), 1)',
-        800: 'rgba(var(--semi-primary-8), 1)',
-        900: 'rgba(var(--semi-primary-9), 1)',
+        50: 'rgba(var(--semi-indigo-0), 1)',
+        100: 'rgba(var(--semi-indigo-1), 1)',
+        200: 'rgba(var(--semi-indigo-2), 1)',
+        300: 'rgba(var(--semi-indigo-3), 1)',
+        400: 'rgba(var(--semi-indigo-4), 1)',
+        500: 'rgba(var(--semi-indigo-5), 1)',
+        600: 'rgba(var(--semi-indigo-6), 1)',
+        700: 'rgba(var(--semi-indigo-7), 1)',
+        800: 'rgba(var(--semi-indigo-8), 1)',
+        900: 'rgba(var(--semi-indigo-9), 1)',
       },
       gray: {
         50: 'rgba(var(--semi-grey-0), 1)',
@@ -92,7 +96,7 @@ module.exports = {
         200: 'rgba(var(--semi-grey-2), 1)',
         300: 'rgba(var(--semi-grey-3), 1)',
         400: 'rgba(var(--semi-grey-4), 1)',
-        500: 'rgba(var(--semi-grey-5), 1)', // default
+        500: 'rgba(var(--semi-grey-5), 1)',
         600: 'rgba(var(--semi-grey-6), 1)',
         700: 'rgba(var(--semi-grey-7), 1)',
         800: 'rgba(var(--semi-grey-8), 1)',
@@ -104,7 +108,7 @@ module.exports = {
         200: 'rgba(var(--semi-red-2), 1)',
         300: 'rgba(var(--semi-red-3), 1)',
         400: 'rgba(var(--semi-red-4), 1)',
-        500: 'rgba(var(--semi-red-5), 1)', // default
+        500: 'rgba(var(--semi-red-5), 1)',
         600: 'rgba(var(--semi-red-6), 1)',
         700: 'rgba(var(--semi-red-7), 1)',
         800: 'rgba(var(--semi-red-8), 1)',
@@ -116,7 +120,7 @@ module.exports = {
         200: 'rgba(var(--semi-green-2), 1)',
         300: 'rgba(var(--semi-green-3), 1)',
         400: 'rgba(var(--semi-green-4), 1)',
-        500: 'rgba(var(--semi-green-5), 1)', // default
+        500: 'rgba(var(--semi-green-5), 1)',
         600: 'rgba(var(--semi-green-6), 1)',
         700: 'rgba(var(--semi-green-7), 1)',
         800: 'rgba(var(--semi-green-8), 1)',
@@ -128,7 +132,7 @@ module.exports = {
         200: 'rgba(var(--semi-yellow-2), 1)',
         300: 'rgba(var(--semi-yellow-3), 1)',
         400: 'rgba(var(--semi-yellow-4), 1)',
-        500: 'rgba(var(--semi-yellow-5), 1)', // default
+        500: 'rgba(var(--semi-yellow-5), 1)',
         600: 'rgba(var(--semi-yellow-6), 1)',
         700: 'rgba(var(--semi-yellow-7), 1)',
         800: 'rgba(var(--semi-yellow-8), 1)',
@@ -140,11 +144,47 @@ module.exports = {
         200: 'rgba(var(--semi-blue-2), 1)',
         300: 'rgba(var(--semi-blue-3), 1)',
         400: 'rgba(var(--semi-blue-4), 1)',
-        500: 'rgba(var(--semi-blue-5), 1)', // default
+        500: 'rgba(var(--semi-blue-5), 1)',
         600: 'rgba(var(--semi-blue-6), 1)',
         700: 'rgba(var(--semi-blue-7), 1)',
         800: 'rgba(var(--semi-blue-8), 1)',
         900: 'rgba(var(--semi-blue-9), 1)',
+      },
+      purple: {
+        50: 'rgba(var(--semi-purple-0), 1)',
+        100: 'rgba(var(--semi-purple-1), 1)',
+        200: 'rgba(var(--semi-purple-2), 1)',
+        300: 'rgba(var(--semi-purple-3), 1)',
+        400: 'rgba(var(--semi-purple-4), 1)',
+        500: 'rgba(var(--semi-purple-5), 1)',
+        600: 'rgba(var(--semi-purple-6), 1)',
+        700: 'rgba(var(--semi-purple-7), 1)',
+        800: 'rgba(var(--semi-purple-8), 1)',
+        900: 'rgba(var(--semi-purple-9), 1)',
+      },
+      pink: {
+        50: 'rgba(var(--semi-pink-0), 1)',
+        100: 'rgba(var(--semi-pink-1), 1)',
+        200: 'rgba(var(--semi-pink-2), 1)',
+        300: 'rgba(var(--semi-pink-3), 1)',
+        400: 'rgba(var(--semi-pink-4), 1)',
+        500: 'rgba(var(--semi-pink-5), 1)',
+        600: 'rgba(var(--semi-pink-6), 1)',
+        700: 'rgba(var(--semi-pink-7), 1)',
+        800: 'rgba(var(--semi-pink-8), 1)',
+        900: 'rgba(var(--semi-pink-9), 1)',
+      },
+      indigo: {
+        50: 'rgba(var(--semi-indigo-0), 1)',
+        100: 'rgba(var(--semi-indigo-1), 1)',
+        200: 'rgba(var(--semi-indigo-2), 1)',
+        300: 'rgba(var(--semi-indigo-3), 1)',
+        400: 'rgba(var(--semi-indigo-4), 1)',
+        500: 'rgba(var(--semi-indigo-5), 1)',
+        600: 'rgba(var(--semi-indigo-6), 1)',
+        700: 'rgba(var(--semi-indigo-7), 1)',
+        800: 'rgba(var(--semi-indigo-8), 1)',
+        900: 'rgba(var(--semi-indigo-9), 1)',
       },
     },
 

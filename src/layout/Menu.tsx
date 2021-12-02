@@ -8,6 +8,7 @@ import routes from '../routes';
 import { NavItemProps } from '@douyinfe/semi-ui/lib/es/navigation';
 
 import { isValidArray } from '@elonwu/utils';
+import { useGlobal } from './Global';
 
 interface MenuItem extends NavItemProps {
   path?: string;
@@ -30,13 +31,17 @@ const filterMenu = (routes?: ElonRoute[], parent?: ElonRoute): MenuItem[] => {
       } = route;
 
       if (inMenu) {
-        result.push({
+        const curr: MenuItem = {
           itemKey: key,
           text: title,
-          icon,
-          items: filterMenu(nestedRoutes, route),
           path: path || parent?.path, // 如果为 IndexRoute, 没有 path, 则使用父层级的 path
-        });
+        };
+
+        if (icon) curr.icon = icon;
+        if (isValidArray(nestedRoutes))
+          curr.items = filterMenu(nestedRoutes, route);
+
+        result.push(curr);
       } else {
         result = result.concat(filterMenu(nestedRoutes, route));
       }
@@ -52,6 +57,8 @@ const Menu = () => {
   // 路由
   const navigate = useNavigate();
   const locaiton = useLocation();
+
+  const { isMobile } = useGlobal();
 
   // 已选中的
   const [selected, setSelected] = useState<string[]>([]);
@@ -101,27 +108,27 @@ const Menu = () => {
         navigate(matchedItem.path);
       }
     },
-    [],
+    [navigate],
   );
-
-  const toggleDarkMode = () => {
-    document.documentElement.classList.toggle('dark');
-  };
 
   return (
     <Nav
       selectedKeys={selected}
-      className="bg-gray-100 dark:bg-gray-500"
-      bodyStyle={{ height: 320 }}
+      className="border-none bg-white dark:bg-gray-700 overflow-auto "
       items={items}
       onSelect={onSelect as any}
-      header={{
-        logo: (
-          <img src="https://sf6-cdn-tos.douyinstatic.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/webcast_logo.svg" />
-        ),
-        text: <h3 onClick={toggleDarkMode}>BBGAME BI</h3>,
-      }}
-      footer={{ collapseButton: true }}
+      footer={{ collapseButton: !isMobile }}
+      style={
+        isMobile
+          ? {
+              height: 'calc(100% - 24px)',
+              borderRadius: 4,
+            }
+          : {
+              height: '100%',
+              borderRadius: 0,
+            }
+      }
     />
   );
 };

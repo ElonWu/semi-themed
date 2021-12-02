@@ -1,24 +1,32 @@
 import { ElonRoute } from '@elonwu/router';
 
-import { IconUser, IconStar, IconSetting } from '@douyinfe/semi-icons';
+import {
+  IconClock,
+  IconHome,
+  IconPhone,
+  IconUserAdd,
+  IconUserCircle,
+  IconUserGroup,
+  IconUserSetting,
+} from '@douyinfe/semi-icons';
 
-import Page1 from '@/pages/Page1';
-import Page2 from '@/pages/Page2';
-import Page3 from '@/pages/Page3';
+import BI from '@/pages/BI';
 
 import GlobalNotFound from '@/pages/GlobalNotFound';
 
-import Layout from '@/layout/Global';
+import Global from '@/layout/Global';
+import Layout from '@/layout/Layout';
 
 const routes: ElonRoute[] = [
   // 默认页面
   {
     path: '/',
     key: 'Global',
+    component: Global,
     routes: [
       {
         index: true,
-        redirect: '/page1',
+        redirect: '/home',
       },
       {
         component: Layout,
@@ -26,33 +34,82 @@ const routes: ElonRoute[] = [
         routes: [
           {
             inMenu: true,
-            title: '测试1',
-            path: '/page1',
-            component: Page1,
-            key: 'page1',
-            icon: <IconUser />,
+            title: '首页',
+            path: '/home',
+            component: BI,
+            key: 'home',
+            icon: <IconHome />,
           },
-
           {
             inMenu: true,
-            title: '测试2',
-            path: '/page2',
-            component: Page2,
-            key: 'page2',
-            icon: <IconStar />,
+            title: '新增用户',
+            path: '/newly-user',
+            component: BI,
+            key: 'newly-user',
+            icon: <IconUserAdd />,
+          },
+          {
+            inMenu: true,
+            title: '活跃用户',
+            path: '/active-user',
+            component: BI,
+            key: 'active-user',
+            icon: <IconUserCircle />,
+          },
+          {
+            inMenu: true,
+            title: '活跃分析',
+            path: '/user-distribute',
+            component: BI,
+            key: 'user-distribute',
+            icon: <IconUserGroup />,
+          },
+          {
+            inMenu: true,
+            title: '在线习惯',
+            path: '/user-habit',
+            component: BI,
+            key: 'user-habit',
+            icon: <IconClock />,
+          },
+          {
+            inMenu: true,
+            title: '设备分析',
+            path: '/device',
+            component: BI,
+            key: 'device',
+            icon: <IconPhone />,
+          },
+          {
+            inMenu: true,
+            title: '用户流失',
+            path: '/user-lost',
+            key: 'user-lost',
+            icon: <IconUserSetting />,
+
+            routes: [
+              {
+                index: true,
+                redirect: '/user-lost/analyze',
+              },
+              {
+                inMenu: true,
+                title: '流失分析',
+                path: '/user-lost/analyze',
+                key: 'user-lost-analyze',
+                component: BI,
+              },
+              {
+                inMenu: true,
+                title: '回流分析',
+                path: '/user-lost/retain',
+                key: 'user-lost-retain',
+                component: BI,
+              },
+            ],
           },
         ],
       },
-
-      {
-        inMenu: true,
-        title: '测试3',
-        path: '/page3',
-        component: Page3,
-        key: 'page3',
-        icon: <IconSetting />,
-      },
-
       // 全局 404页面
       {
         path: '*',
