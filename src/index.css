@@ -11,7 +11,9 @@ html[data-theme='grayscale'] {
 *,
 *::before,
 *::after {
-  transition: color 0.2s ease, background 0.2s ease;
+  transition: color 0.12s ease, background 0.12s ease;
+  font-family: Noto Serif SC, ui-serif, Georgia, Cambria, 'Times New Roman',
+    Times, serif, Helvetica, Arial, sans-serif !important;
 }
 
 /* 覆盖第三方的 css variables  light */
@@ -291,7 +293,8 @@ html[data-theme='grayscale'] {
   --semi-color-text-3: rgba(var(--semi-white), 0.35);
 }
 
-@layer base {
+/* 会影响组件内的默认样式 */
+/* @layer base {
   h1 {
     @apply text-3xl text-gray-700 dark:text-gray-50;
   }
@@ -314,10 +317,6 @@ html[data-theme='grayscale'] {
     @apply text-base text-gray-700 dark:text-gray-50;
   }
 
-  /* span {
-    @apply text-base text-gray-500 dark:text-gray-50;
-  } */
-
   p,
   article,
   div,
@@ -326,4 +325,8 @@ html[data-theme='grayscale'] {
   td {
     @apply text-base text-gray-500 dark:text-gray-50;
   }
+} */
+
+.semi-icon {
+  @apply text-gray-700 dark:text-gray-50;
 }

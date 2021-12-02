@@ -8,7 +8,7 @@
     "@elonwu/hooks": "^0.2.0",
     "@elonwu/router": "^0.0.9",
     "@elonwu/utils": "^0.2.2",
-    "@elonwu/web-chart": "^0.3.5",
+    "@elonwu/web-chart": "^0.3.6",
     "classnames": "^2.3.1",
     "moment": "^2.29.1",
     "react": "^17.0.2",

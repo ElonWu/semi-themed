@@ -1545,10 +1545,10 @@
     "moment" "^2.29.1"
     "qs" "^6.10.1"
 
-"@elonwu/web-chart@^0.3.5":
-  "integrity" "sha512-P6KryEODBSZiTqJz52pdOiAPXgboLMNhgSSXeFjH8SE+XIb4seGa5H58fIUDYPYm9DZEQQ7RJPv+D3bIjZM3qA=="
-  "resolved" "https://registry.npmjs.org/@elonwu/web-chart/-/web-chart-0.3.5.tgz"
-  "version" "0.3.5"
+"@elonwu/web-chart@^0.3.6":
+  "integrity" "sha512-TEvchWDIebxR7RdIsJG9nVSfr8Ncurtumjbp2LtXqOgFSCCe+gLll0GbLQ9KMCLelA3tTw9zZGUHR6ikHFnQNQ=="
+  "resolved" "https://registry.npmjs.org/@elonwu/web-chart/-/web-chart-0.3.6.tgz"
+  "version" "0.3.6"
   dependencies:
     "@antv/data-set" "^0.11.8"
     "@antv/g2" "^4.1.21"

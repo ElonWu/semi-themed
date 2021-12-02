@@ -39,8 +39,12 @@ const GameInfo = () => {
       <div className="w-12 h-12 rounded-md bg-gradient-to-br from-gray-50 to-gray-600 dark:from-gray-600 dark:to-gray-50"></div>
 
       <div className="h-full flex flex-col items-start justify-between">
-        <h3 className="text-base md:text-lg">新信长之野望</h3>
-        <p className="text-sm md:text-base">日本地区新信长之野望</p>
+        <h3 className="text-base font-bold md:text-lg text-gray-800 dark:text-gray-50">
+          新信长之野望
+        </h3>
+        <p className="text-sm md:text-base text-gray-500 dark:text-gray-200">
+          日本地区新信长之野望
+        </p>
       </div>
     </div>
   );

@@ -59,7 +59,9 @@ const CardTitle = () => {
   return (
     <div className="w-full flex items-center justify-between">
       <div className="flex-1 flex items-center space-x-4 justify-start">
-        <h4>标题</h4>
+        <h4 className="font-bold text-lg text-gray-800 dark:text-gray-50">
+          标题
+        </h4>
         <IconInfoCircle />
       </div>
 
@@ -297,7 +299,12 @@ const DropDownSelect = ({
 
   return (
     <ElonDropdown value={value} onChange={onChange} options={options}>
-      <p style={{ lineHeight: '32px' }}>{matchItem}</p>
+      <p
+        className="text-base font-bold text-gray-600 dark:text-gray-100"
+        style={{ lineHeight: '32px' }}
+      >
+        {matchItem}
+      </p>
     </ElonDropdown>
   );
 };
