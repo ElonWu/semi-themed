@@ -2,10 +2,9 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 const animationConfig = require('./tailwind.config.animation');
 
 module.exports = {
-  // prefix: 'elon-', // 需将 css 中 apply 的内容手动增加前缀
   // mode: 'jit',
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: 'class', // or 'media' or 'class'
+  darkMode: 'class',
   theme: {
     screens: {
       sm: '768px',
@@ -197,10 +196,10 @@ module.exports = {
   },
   variants: {
     extend: {
-      animation: ['hover', 'focus', 'active'], // 允许目标前缀下可使用 animation utilities
-      transform: ['hover', 'focus', 'active'],
-      backgroundColor: ['active'],
-      textColor: ['active'],
+      animation: ['hover', 'focus'], // 允许目标前缀下可使用 animation utilities
+      transform: ['hover', 'focus'],
+      // backgroundColor: ['active'],
+      // textColor: ['active'],
     },
   },
 };
