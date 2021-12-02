@@ -5,10 +5,10 @@
   "dependencies": {
     "@craco/craco": "^6.4.2",
     "@douyinfe/semi-ui": "^2.1.1",
-    "@elonwu/hooks": "^0.2.0",
+    "@elonwu/hooks": "^0.2.1",
     "@elonwu/router": "^0.0.9",
     "@elonwu/utils": "^0.2.2",
-    "@elonwu/web-chart": "^0.3.6",
+    "@elonwu/web-chart": "^0.3.7",
     "classnames": "^2.3.1",
     "moment": "^2.29.1",
     "react": "^17.0.2",

@@ -176,9 +176,9 @@ const DataPreview = ({
     ];
   }, []);
 
-  const key = useMemo(() => `${cardKey} -${chartType}}`, [chartType, cardKey]);
+  const key = useMemo(() => `${cardKey}-${chartType}`, [chartType, cardKey]);
 
-  const height = useMemo(() => 388, []);
+  const height = useMemo(() => 400, []);
 
   const chartProps = { theme, chartKey: key, dataSource, height };
 
@@ -221,7 +221,20 @@ const DataPreview = ({
       return <BarGroup {...chartProps} />;
 
     case 'pie':
-      return <Pie {...chartProps} />;
+      return (
+        <Pie
+          {...chartProps}
+          dataSource={[
+            { x: '2021-12-01', y: 100 },
+            { x: '2021-12-02', y: 50 },
+            { x: '2021-12-03', y: 86 },
+            { x: '2021-12-04', y: 67 },
+            { x: '2021-12-05', y: 48 },
+            { x: '2021-12-06', y: 90 },
+            { x: '2021-12-07', y: 24 },
+          ]}
+        />
+      );
 
     default:
       return null;
