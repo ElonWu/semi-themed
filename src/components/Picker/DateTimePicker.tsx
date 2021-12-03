@@ -4,25 +4,35 @@ import { DatePicker } from '@douyinfe/semi-ui';
 import { SlideUpDatePicker } from './SlideUpDatePicker';
 import { useGlobal } from '../../layout/Global';
 import moment, { Moment } from 'moment';
+import { SlideUpTimePicker } from './SlideUpTimePicker';
 
-export interface ElonDatePickerProps {
+export interface ElonDateTimePickerProps {
   value: Moment;
   onChange: (mnt: Moment) => void;
-  showTime?: boolean;
-  title?: 'string';
+  titlePre?: string;
 }
 
-export const ElonDatePicker = ({
+export const ElonDateTimePicker = ({
   value,
   onChange,
-  title,
-  showTime = false,
-}: ElonDatePickerProps) => {
+  titlePre,
+}: ElonDateTimePickerProps) => {
   const { isMobile } = useGlobal();
 
   if (isMobile) {
     return (
-      <SlideUpDatePicker value={value} onChange={onChange} title={title} />
+      <span className="flex items-center justify-start space-x-1">
+        <SlideUpDatePicker
+          value={value}
+          onChange={onChange}
+          titlePre={titlePre}
+        />
+        <SlideUpTimePicker
+          value={value}
+          onChange={onChange}
+          titlePre={titlePre}
+        />
+      </span>
     );
   }
 
@@ -30,7 +40,7 @@ export const ElonDatePicker = ({
     <DatePicker
       value={value?.toDate()}
       onChange={(date: any) => onChange && onChange(moment(date))}
-      type="date"
+      type="dateTime"
       density="compact"
       style={{ width: 250 }}
     />

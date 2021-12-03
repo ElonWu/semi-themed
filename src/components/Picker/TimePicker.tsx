@@ -9,12 +9,21 @@ import { SlideUpTimePicker } from './SlideUpTimePicker';
 export interface ElonTimePickerProps {
   value: Moment;
   onChange: (mnt: Moment) => void;
+  title?: string;
 }
 
-export const ElonTimePicker = ({ value, onChange }: ElonTimePickerProps) => {
+export const ElonTimePicker = ({
+  value,
+  onChange,
+  title,
+}: ElonTimePickerProps) => {
   const { isMobile } = useGlobal();
 
-  if (isMobile) return <SlideUpTimePicker value={value} onChange={onChange} />;
+  if (isMobile) {
+    return (
+      <SlideUpTimePicker value={value} onChange={onChange} title={title} />
+    );
+  }
 
   return (
     <TimePicker

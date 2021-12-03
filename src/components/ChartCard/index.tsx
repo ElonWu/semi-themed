@@ -20,7 +20,13 @@ import { OptionProps } from '@douyinfe/semi-ui/lib/es/select';
 import { useGlobal } from '@/layout/Global';
 import { Divider, ElonSelect } from '@/components';
 
-import { ElonDatePicker, ElonTimePicker } from '../Picker';
+import {
+  ElonDateTimePicker,
+  ElonDateRangePicker,
+  ElonDateTimeRangePicker,
+  ElonDatePicker,
+  ElonTimePicker,
+} from '../Picker';
 
 const ChartCard = ({ cardKey }: { cardKey: string }) => {
   const [chartType, setChartType] = useState<string>();
@@ -39,10 +45,15 @@ const ChartCard = ({ cardKey }: { cardKey: string }) => {
     >
       <CardTitle />
 
-      <div className="flex flex-col items-start justify-between space-y-4 md:flex-row md:items-center md:justify-start md:space-y-0">
-        <div className="md:flex-1">
-          <Filters />
+      <div className="flex flex-col items-stretch justify-between space-y-4 md:flex-row md:items-center md:justify-start md:space-y-0">
+        <DateRangeSelect />
+
+        <div className="flex flex-wrap items-center justify-start space-x-2 md:flex-1 md:pl-2">
+          <TimeDimSelect />
+          <Divider />
+          <DimSelect />
         </div>
+
         <ChartTypeSelect value={chartType} onChange={setChartType} />
       </div>
 
@@ -73,17 +84,6 @@ const CardTitle = () => {
         <IconRefresh />
         <IconDownload />
       </div>
-    </div>
-  );
-};
-const Filters = () => {
-  return (
-    <div className="flex flex-wrap items-center justify-start space-x-2">
-      <DateRangeSelect />
-      <Divider />
-      <TimeDimSelect />
-      <Divider />
-      <DimSelect />
     </div>
   );
 };
@@ -299,11 +299,7 @@ const TimeDimSelect = () => {
 };
 
 const DateRangeSelect = () => {
-  const [value, onChange] = useState(moment());
-  return (
-    <span className="flex items-center justify-start space-x-4">
-      <ElonDatePicker value={value} onChange={onChange} />
-      <ElonTimePicker value={value} onChange={onChange} />
-    </span>
-  );
+  const [value, onChange] = useState([moment().subtract(7, 'days'), moment()]);
+  return <ElonDateTimeRangePicker value={value} onChange={onChange} />;
+  // return <ElonDateRangePicker value={value} onChange={onChange} />;
 };

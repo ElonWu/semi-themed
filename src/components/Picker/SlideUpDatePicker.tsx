@@ -5,12 +5,14 @@ import moment, { Moment } from 'moment';
 export const SlideUpDatePicker = ({
   value,
   onChange,
-  title = '选择日期',
+  title,
+  titlePre,
   yearSpan = 100,
 }: {
   value?: Moment;
   onChange?: (m: Moment) => void;
   title?: string;
+  titlePre?: string;
   yearSpan?: number;
 }) => {
   const [visible, setVisible] = useState(false);
@@ -51,7 +53,7 @@ export const SlideUpDatePicker = ({
     setSelectYear(year);
     setSelectMonth(month + 1);
     setSelectDay(day);
-  }, []);
+  }, [value]);
 
   // 根据年月重置选项
   const resetDaysOptions = useCallback(
@@ -123,7 +125,10 @@ export const SlideUpDatePicker = ({
     if (onChange && selectYear && selectMonth && selectDay) {
       // 保留当前时间的 time
       onChange(
-        moment(value).year(selectYear).month(selectMonth).date(selectDay),
+        moment(value)
+          .year(selectYear)
+          .month(selectMonth - 1)
+          .date(selectDay),
       );
     }
     setVisible(false);
@@ -141,7 +146,7 @@ export const SlideUpDatePicker = ({
 
       <SideSheet
         placement="bottom"
-        title={title}
+        title={title || (titlePre && `选择${titlePre}日期`) || '选择日期'}
         visible={visible}
         onCancel={() => setVisible(false)}
         height={360}

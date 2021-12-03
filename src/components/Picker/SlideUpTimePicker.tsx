@@ -5,11 +5,13 @@ import moment, { Moment } from 'moment';
 export const SlideUpTimePicker = ({
   value,
   onChange,
-  title = '选择时间',
+  title,
+  titlePre,
 }: {
   value?: Moment;
   onChange?: (m: Moment) => void;
   title?: string;
+  titlePre?: string;
 }) => {
   const [visible, setVisible] = useState(false);
 
@@ -94,7 +96,7 @@ export const SlideUpTimePicker = ({
 
       <SideSheet
         placement="bottom"
-        title={title}
+        title={title || (titlePre && `选择${titlePre}时间`) || '选择时间'}
         visible={visible}
         onCancel={() => setVisible(false)}
         height={360}
