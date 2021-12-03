@@ -61,7 +61,7 @@ const ElonDateTimeRange = ({
   return (
     <span className="flex items-center justify-start space-x-1">
       <ElonDateTimePicker value={start} onChange={setStart} titlePre="开始" />
-      <span className="text-gray-500 dark:bg-gray-50">~</span>
+      <span className="text-gray-500 dark:text-gray-50">~</span>
       <ElonDateTimePicker value={end} onChange={setEnd} titlePre="结束" />
     </span>
   );

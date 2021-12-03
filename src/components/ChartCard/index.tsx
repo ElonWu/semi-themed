@@ -18,7 +18,7 @@ import { LineGroup, Pie, BarGroup } from '@elonwu/web-chart';
 
 import { OptionProps } from '@douyinfe/semi-ui/lib/es/select';
 import { useGlobal } from '@/layout/Global';
-import { Divider, ElonSelect } from '@/components';
+import { Divider, ElonSelect, ElonTable } from '@/components';
 
 import {
   ElonDateTimePicker,
@@ -108,7 +108,7 @@ const ChartTypeSelect = ({
       },
       {
         value: 'bar',
-        label: '柱状图',
+        label: '柱图',
       },
       {
         value: 'table',
@@ -208,15 +208,7 @@ const DataPreview = ({
 
   switch (chartType) {
     case 'table':
-      return (
-        <Table
-          style={{ height }}
-          bordered
-          tableLayout="fixed"
-          pagination={{ pageSize: 6 }}
-          {...tableProps}
-        />
-      );
+      return <ElonTable height={height} pageSize={6} {...tableProps} />;
 
     case 'line':
       return <LineGroup {...chartProps} />;

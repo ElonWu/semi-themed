@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { Outlet } from '@elonwu/router';
 import Menu from './Menu';
 import { ElonDropdown } from '@/components';
-import { useGlobal } from './Global';
+import { localeOptions, useGlobal } from './Global';
 import { Avatar, SideSheet, Tooltip } from '@douyinfe/semi-ui';
 import { IconGlobe, IconMenu, IconMoon, IconSun } from '@douyinfe/semi-icons';
 
@@ -53,27 +53,6 @@ const GameInfo = () => {
 const HeaderAction = () => {
   const { isMobile, theme, toggleDarkMode, lang, setLang } = useGlobal();
 
-  const langOptons = useMemo(() => {
-    return [
-      {
-        key: 'zh-cn',
-        title: '简体中文',
-      },
-      {
-        key: 'zh-hk',
-        title: '繁体中文',
-      },
-      {
-        key: 'en-us',
-        title: '英文',
-      },
-      {
-        key: 'jp',
-        title: '日文',
-      },
-    ];
-  }, []);
-
   const trigger = useMemo(() => (isMobile ? 'click' : 'hover'), [isMobile]);
 
   return (
@@ -100,7 +79,7 @@ const HeaderAction = () => {
       </span>
 
       <ElonDropdown
-        options={langOptons}
+        options={localeOptions}
         value={lang}
         onChange={setLang}
         trigger={trigger}
@@ -152,8 +131,10 @@ const MobileLayout = () => {
       className="w-screen h-screen flex flex-col"
     >
       <header className="p-4 flex items-center justify-between bg-gray-50 dark:bg-gray-600">
-        <div className="flex items-center justify-start space-x-4">
-          <IconMenu onClick={() => setShowMenu(true)} />
+        <div
+          className="flex items-center justify-start space-x-4 cursor-pointer"
+          onClick={() => setShowMenu(true)}
+        >
           <GameInfo />
         </div>
 
