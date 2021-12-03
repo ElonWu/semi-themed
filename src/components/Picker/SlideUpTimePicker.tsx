@@ -107,7 +107,11 @@ export const SlideUpTimePicker = ({
         }}
       >
         <ScrollList
-          header={timeStr}
+          header={
+            <p className="text-base font-bold text-gray-600 dark:text-gray-100">
+              {timeStr}
+            </p>
+          }
           footer={
             <Button block theme="solid" type="primary" onClick={onTimeChange}>
               确定
