@@ -9,14 +9,18 @@ import {
   IconPieChartStroked,
   IconRefresh,
 } from '@douyinfe/semi-icons';
-import { DatePicker, Select, Table } from '@douyinfe/semi-ui';
+
+import moment from 'moment';
+
+import { Table, Select } from '@douyinfe/semi-ui';
 
 import { LineGroup, Pie, BarGroup } from '@elonwu/web-chart';
 
 import { OptionProps } from '@douyinfe/semi-ui/lib/es/select';
 import { useGlobal } from '@/layout/Global';
-import { Divider } from '../Divider/index';
-import { ElonDropdown, ElonDropdownOption } from '../DropDown/index';
+import { Divider, ElonSelect } from '@/components';
+
+import { ElonDatePicker, ElonTimePicker } from '../Picker';
 
 const ChartCard = ({ cardKey }: { cardKey: string }) => {
   const [chartType, setChartType] = useState<string>();
@@ -267,9 +271,9 @@ const DimSelect = () => {
     ];
   }, []);
 
-  const props = { value, onChange: onChange as any, options };
+  const props = { title: '维度', value, onChange: onChange as any, options };
 
-  return <DropDownSelect {...props} />;
+  return <ElonSelect {...props} />;
 };
 
 const TimeDimSelect = () => {
@@ -284,40 +288,22 @@ const TimeDimSelect = () => {
       { key: 'dim5', title: '季度' },
     ];
   }, []);
-  const props = { value, onChange: onChange as any, options };
+  const props = {
+    title: '时间维度',
+    value,
+    onChange: onChange as any,
+    options,
+  };
 
-  return <DropDownSelect {...props} />;
+  return <ElonSelect {...props} />;
 };
 
 const DateRangeSelect = () => {
-  // const [value, onChange] = useState([moment().subtract(1, 'day'), moment()]);
-
+  const [value, onChange] = useState(moment());
   return (
-    <DatePicker type="dateRange" density="compact" style={{ width: 250 }} />
-  );
-};
-
-const DropDownSelect = ({
-  value,
-  onChange,
-  options,
-}: {
-  value: string;
-  onChange: (value?: string) => void;
-  options: ElonDropdownOption[];
-}) => {
-  const matchItem = useMemo(() => {
-    return options.find((opt) => opt.key === value)?.title || value;
-  }, [options, value]);
-
-  return (
-    <ElonDropdown value={value} onChange={onChange} options={options}>
-      <p
-        className="text-base font-bold text-gray-600 dark:text-gray-100"
-        style={{ lineHeight: '32px' }}
-      >
-        {matchItem}
-      </p>
-    </ElonDropdown>
+    <span className="flex items-center justify-start space-x-4">
+      <ElonDatePicker value={value} onChange={onChange} />
+      <ElonTimePicker value={value} onChange={onChange} />
+    </span>
   );
 };

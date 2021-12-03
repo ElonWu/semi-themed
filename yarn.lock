@@ -1545,6 +1545,21 @@
     "moment" "^2.29.1"
     "qs" "^6.10.1"
 
+"@elonwu/web-box@0.1.0":
+  "integrity" "sha512-wzINhyq4++D1tU9v7SEfEIJQc7jB5ZiBEGZ5h8fjV1msInwmxlquHsPFqEOn0NWVdAvc/4aCHn9ZxVq29mys2A=="
+  "resolved" "https://registry.npmjs.org/@elonwu/web-box/-/web-box-0.1.0.tgz"
+  "version" "0.1.0"
+  dependencies:
+    "classnames" "^2.3.1"
+
+"@elonwu/web-calendar@^0.1.0":
+  "integrity" "sha512-14kMk3S/migwvKG2kONuznux6KaV+MCl2PwOSQwYucpcmxahj5ApVJsQh/IlphfgcTliuQfcOBGICEtrKcjdhA=="
+  "resolved" "https://registry.npmjs.org/@elonwu/web-calendar/-/web-calendar-0.1.0.tgz"
+  "version" "0.1.0"
+  dependencies:
+    "@elonwu/web-box" "0.1.0"
+    "classnames" "^2.3.1"
+
 "@elonwu/web-chart@^0.3.7":
   "integrity" "sha512-6jmT/kSjpe5nrc0z0nKGgSXAaWTB+ckuwT6C2IIT/Rx5OGGYlbWzwFXXlO2rpe3meQXGgYQi3VQmwMrX46E8tg=="
   "resolved" "https://registry.npmjs.org/@elonwu/web-chart/-/web-chart-0.3.7.tgz"
@@ -2197,6 +2212,13 @@
   "integrity" "sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA=="
   "resolved" "https://registry.npmjs.org/@types/minimatch/-/minimatch-3.0.3.tgz"
   "version" "3.0.3"
+
+"@types/moment@^2.13.0":
+  "integrity" "sha1-YE69GJvDvDShVIaJQE5hoqSqyJY="
+  "resolved" "https://registry.npmjs.org/@types/moment/-/moment-2.13.0.tgz"
+  "version" "2.13.0"
+  dependencies:
+    "moment" "*"
 
 "@types/node@*":
   "integrity" "sha512-vFHy/ezP5qI0rFgJ7aQnjDXwAMrG0KqqIH7tQG5PPv3BWBayOPIQNBjVc/P6hhdZfMx51REc6tfDNXHUio893g=="
@@ -8613,7 +8635,7 @@
   "resolved" "https://registry.npmjs.org/modern-normalize/-/modern-normalize-1.1.0.tgz"
   "version" "1.1.0"
 
-"moment@^2.29.1":
+"moment@*", "moment@^2.29.1":
   "integrity" "sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ=="
   "resolved" "https://registry.npmjs.org/moment/-/moment-2.29.1.tgz"
   "version" "2.29.1"
